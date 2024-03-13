@@ -24,12 +24,6 @@ export default function EthereumDiscovery() {
 
     }, [])
 
-    const handleGetBlockNumberClicked = async () => {
-        const blockNumber = await provider.getBlockNumber();
-
-        alert('blockNumber ' + blockNumber);
-    }
-
     const handleGetCurrentBalanceClicked = async () => {
         const currentBalance = await provider.getBalance("ethers.eth");
 
@@ -58,11 +52,9 @@ export default function EthereumDiscovery() {
                     provider={provider}
                     refetchInMs={2000}
                 />
-            </CustomEtherumProvider>
 
-            <button onClick={handleGetBlockNumberClicked}>
-                get block number
-            </button>
+
+            </CustomEtherumProvider>
 
             <button onClick={handleGetCurrentBalanceClicked}>
                 get current balance
