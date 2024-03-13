@@ -59,11 +59,14 @@ export default function EthereumAddressBalance({ provider }: EthereumAddressBala
                     </button>
                 </form>
 
-                <div className="etherum-account-balance-footer">
-                    <div className="line"></div>
-                    <p className="etherum-account-balance-message">The Balance For The Address</p>
-                    <div className="line"></div>
-                </div>
+                {
+                    (!!data || isError || isPending) &&
+                    <div className="etherum-account-balance-footer">
+                        <div className="line"></div>
+                        <p className="etherum-account-balance-message">The Balance For The Address</p>
+                        <div className="line"></div>
+                    </div>
+                }
 
                 <DataDisplayer
                     data={data}

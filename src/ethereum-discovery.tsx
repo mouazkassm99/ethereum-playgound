@@ -3,7 +3,7 @@ import { ethers, Provider } from "ethers"
 import { useEffect, useState } from "react"
 import { CustomEtherumProvider } from "./component/custom-etherum-provider"
 import EthereumAddressBalance from "./component/custom-address-balance/etherum-addresss-balance"
-import { EthereumCurrentBlockNumberDisplayer } from "./component/current-block-number"
+import { EthereumCurrentBlock } from "./component/current-block-number"
 
 export default function EthereumDiscovery() {
 
@@ -36,12 +36,13 @@ export default function EthereumDiscovery() {
     return (
         <div style={{
             display: "flex",
+            flexDirection: "column",
             gap: "1rem"
         }}>
 
             <CustomEtherumProvider>
 
-                <EthereumCurrentBlockNumberDisplayer
+                <EthereumCurrentBlock
                     provider={provider}
                     refetchInMs={2000}
                 />
