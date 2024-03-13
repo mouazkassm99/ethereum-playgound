@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ethers, Provider } from "ethers"
 import { useEffect, useState } from "react"
-import CustomEtherumProvider from "./component/custom-etherum-provider"
-import EthereumAddressBalance from "./component/etherum-addresss-balance"
+import { CustomEtherumProvider } from "./component/custom-etherum-provider"
+import EthereumAddressBalance from "./component/custom-address-balance/etherum-addresss-balance"
 import { EthereumCurrentBlockNumberDisplayer } from "./component/current-block-number"
 
 export default function EthereumDiscovery() {

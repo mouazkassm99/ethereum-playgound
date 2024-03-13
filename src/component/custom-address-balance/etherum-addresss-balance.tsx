@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
-import { Provider, formatEther } from "ethers";
+import { Provider } from "ethers";
 import { useState } from "react";
+import { DataDisplayer } from "./data-displayer";
 
 interface EthereumAddressBalanceProps {
     provider: Provider,
@@ -14,7 +15,7 @@ export default function EthereumAddressBalance({ provider }: EthereumAddressBala
     }
 
 
-    const { mutate, data } = useMutation({
+    const { mutate, data, isError, isPending } = useMutation({
         mutationFn: (address: string) => provider.getBalance(address),
     });
 
@@ -22,22 +23,29 @@ export default function EthereumAddressBalance({ provider }: EthereumAddressBala
         mutate(inputAddress);
     }
 
-    let toDisplayData = '';
-    if (data) {
-        toDisplayData = formatEther(data);
-    }
-
 
     return (
-        <div>
-            <div>{toDisplayData}</div>
+        <div
+            className="etherum-wrapper-account-balance"
+        >
+            <DataDisplayer
+                data={data}
+                isError={isError}
+                isLoading={isPending}
+            />
             <input
                 type="text"
                 id="etherum-balance-address"
+                className="etherum-input-account-balance"
                 value={inputAddress}
                 onChange={(e) => setInputAddress(e.target.value)}
             />
-            <button onClick={handleGetBalanceClicked}>Get Balance</button>
+            <button
+                className="etherum-button-account-balance"
+                onClick={handleGetBalanceClicked}
+            >
+                Get Balance
+            </button>
         </div>
     )
 
