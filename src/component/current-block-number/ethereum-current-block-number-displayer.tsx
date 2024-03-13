@@ -1,14 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { BaseProps } from "./props-types/base-props";
-import { StylesProps } from "./props-types/styles-props";
 
-type EthereumCurrentBlockNumberDisplayerProps = BaseProps & StylesProps;
+type EthereumCurrentBlockNumberDisplayerProps = BaseProps;
 export default function EthereumCurrentBlockNumberDisplayer({
     provider,
     refetchInMs = undefined,
-    errorStyles = undefined,
-    loadingStyles = undefined,
-    dataStyles = undefined,
 }: EthereumCurrentBlockNumberDisplayerProps) {
 
     if (!provider) {
@@ -26,7 +22,6 @@ export default function EthereumCurrentBlockNumberDisplayer({
         return (
             <div
                 className="etherum-error-block-number"
-                style={errorStyles}
             >
                 there was an error
             </div>
@@ -37,7 +32,6 @@ export default function EthereumCurrentBlockNumberDisplayer({
         return (
             <div
                 className="etherum-loading-block-number"
-                style={loadingStyles}
             >
                 loading...
             </div>
@@ -48,7 +42,6 @@ export default function EthereumCurrentBlockNumberDisplayer({
     return (
         <div
             className="etherum-data-block-number"
-            style={dataStyles}
         >
             {data}
         </div>
