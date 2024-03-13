@@ -17,7 +17,7 @@ export default function EthereumCurrentBlockNumberDisplayer(
 
 
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['provider'],
+        queryKey: ['provider-block-number'],
         queryFn: () => provider.getBlockNumber(),
         refetchInterval: refetchInMs ?? false,
     });

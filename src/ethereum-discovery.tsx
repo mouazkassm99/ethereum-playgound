@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ethers, formatEther, Provider } from "ethers"
+import { ethers, Provider } from "ethers"
 import { useEffect, useState } from "react"
 import EthereumCurrentBlockNumberDisplayer from "./component/ethereum-current-block-number-displayer"
 import CustomEtherumProvider from "./component/custom-etherum-provider"
+import EthereumAddressBalance from "./component/etherum-addresss-balance"
 
 export default function EthereumDiscovery() {
 
@@ -23,14 +24,6 @@ export default function EthereumDiscovery() {
         }
 
     }, [])
-
-    const handleGetCurrentBalanceClicked = async () => {
-        const currentBalance = await provider.getBalance("ethers.eth");
-
-        const formattedEther = formatEther(currentBalance);
-
-        alert('current balance ' + formattedEther);
-    }
 
     if (!provider) {
         return (
@@ -54,11 +47,12 @@ export default function EthereumDiscovery() {
                 />
 
 
+                <EthereumAddressBalance
+                    provider={provider}
+                />
+
             </CustomEtherumProvider>
 
-            <button onClick={handleGetCurrentBalanceClicked}>
-                get current balance
-            </button>
         </div>
     )
 }
