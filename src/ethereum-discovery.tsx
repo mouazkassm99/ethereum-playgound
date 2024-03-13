@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ethers, formatEther, Provider } from "ethers"
 import { useEffect, useState } from "react"
+import EthereumCurrentBlockNumberDisplayer from "./component/ethereum-current-block-number-displayer"
+import CustomEtherumProvider from "./component/custom-etherum-provider"
 
 export default function EthereumDiscovery() {
 
@@ -49,6 +51,14 @@ export default function EthereumDiscovery() {
             display: "flex",
             gap: "1rem"
         }}>
+
+            <CustomEtherumProvider>
+
+                <EthereumCurrentBlockNumberDisplayer
+                    provider={provider}
+                    refetchInMs={2000}
+                />
+            </CustomEtherumProvider>
 
             <button onClick={handleGetBlockNumberClicked}>
                 get block number
