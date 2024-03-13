@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ethers, Provider } from "ethers"
 import { useEffect, useState } from "react"
-import EthereumCurrentBlockNumberDisplayer from "./component/ethereum-current-block-number-displayer"
 import CustomEtherumProvider from "./component/custom-etherum-provider"
 import EthereumAddressBalance from "./component/etherum-addresss-balance"
+import { EthereumCurrentBlockNumberDisplayer } from "./component/current-block-number"
 
 export default function EthereumDiscovery() {
 
@@ -45,7 +45,6 @@ export default function EthereumDiscovery() {
                     provider={provider}
                     refetchInMs={2000}
                 />
-
 
                 <EthereumAddressBalance
                     provider={provider}
